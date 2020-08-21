@@ -6,7 +6,7 @@ router.get("/", async (req, res) => {
   try {
     await Employee.find({}, (err, result) => {
       if (err) return res.status(500).send(err);
-      if (!result) return res.status(400).send("No results");
+      if (!result) return res.status(404).send("No results");
 
       return res.status(200).send(result);
     });
